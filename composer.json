@@ -1,7 +1,24 @@
 {
+    "name": "thomxc/guzzleplug",
+    "type": "library",
+    "description": "Guzzle Bootstrap class for easy",
+    "keywords": ["guzzle", "curl", "requests", "get", "post"],
+    "homepage": "https://github.com/thomxc/GuzzlePlug",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Wiersema",
+            "email": "thomas.wiersema@gmail.com",
+        }
+    ],
     "require": {
         "php": "^7.1",
         "ext-json": "*",
         "guzzlehttp/guzzle": "^6.4"
+    },
+    "autoload": {
+        "psr-0": {
+            "GuzzlePlug": "src"
+        }
     }
 }
