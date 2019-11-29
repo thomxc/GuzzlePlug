@@ -38,15 +38,15 @@ abstract class GuzzlePlug
      */
     protected function request($method, $url, $config = array(), $async = false)
     {
-        if (isset($_ENV['APP_DEBUG']) && $_ENV['APP_DEBUG']) {
-            echo 'GuzzleInterface request: ' . $url;
+        if (function_exists('logger')) {
+            logger('GuzzleInterface request: ' . $url);
         }
         $client = new \GuzzleHttp\Client(array_merge($config, $this->headers));
 
         $start = microtime(true);
         $response = $client->request($method, $url, $config);
-        if (isset($_ENV['APP_DEBUG']) && $_ENV['APP_DEBUG']) {
-            echo 'GuzzleInterface request duration: ' . round(microtime(true) - $start, 2) . ' s';
+        if (function_exists('logger')) {
+            logger('GuzzleInterface request duration: ' . round(microtime(true) - $start, 2) . ' s');
         }
         $this->actualResponse = $response;
         return json_decode($response->getBody()->getContents());
