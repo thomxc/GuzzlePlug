@@ -36,7 +36,7 @@ abstract class GuzzlePlug
      * @return mixed
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    protected function request($method, $url, $config = array(), $async = false)
+    protected function request(string $method, string $url, array $config = array(), bool $async = false)
     {
         if (function_exists('logger')) {
             logger('GuzzleInterface request: ' . $url);
